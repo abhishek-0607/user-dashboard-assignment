@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import UserTable from "./components/UserTable";
 
 function App() {
   const [userList, setUserList] = useState([]);
@@ -14,7 +15,11 @@ function App() {
       setUserList(res.data);
     });
   };
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <UserTable userList={userList} />
+    </div>
+  );
 }
 
 export default App;
