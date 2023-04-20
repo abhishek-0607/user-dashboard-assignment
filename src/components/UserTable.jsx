@@ -11,7 +11,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-const UserTable = ({ userList }) => {
+const UserTable = ({ filterList }) => {
   return (
     <Box flex="2" borderWidth="1px" borderRadius="lg" p={8} boxShadow="lg">
       <Heading textAlign={"center"}>User List</Heading>
@@ -27,7 +27,7 @@ const UserTable = ({ userList }) => {
             </Tr>
           </Thead>
           <Tbody>
-            {userList.map((user, index) => (
+            {filterList.map((user, index) => (
               <Tr key={index}>
                 <Td>{index + 1}</Td>
                 <Td>{user.name}</Td>
