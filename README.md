@@ -1,3 +1,7 @@
+## Deployed Link ->
+
+[https://user-dashboard-assignment.netlify.app/]
+
 ## Setup
 
 Make sure to install the dependencies:
