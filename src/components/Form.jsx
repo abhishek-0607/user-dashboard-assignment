@@ -30,17 +30,28 @@ const Form = ({ userList, setUserList, setFilterList }) => {
         }
       );
       console.log(response.data);
-      setUserList((prev) => [...prev, response.data]);
-      setFilterList((prev) => [...prev, response.data]);
-      toast({
-        title: "User created successfully",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-      setEmail("");
-      setName("");
-      setPhone("");
+      if (
+        userList.some((user) => user.email === email || user.phone === phone)
+      ) {
+        toast({
+          title: "Email or Phone is already registered",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      } else {
+        setUserList((prev) => [...prev, response.data]);
+        setFilterList((prev) => [...prev, response.data]);
+        toast({
+          title: "User created successfully",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        setEmail("");
+        setName("");
+        setPhone("");
+      }
     } catch (error) {
       console.error(error);
       toast({
