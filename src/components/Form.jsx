@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-const Form = ({ setUserList, userList }) => {
+const Form = ({ userList, setUserList, setFilterList }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +31,7 @@ const Form = ({ setUserList, userList }) => {
       );
       console.log(response.data);
       setUserList((prev) => [...prev, response.data]);
+      setFilterList((prev) => [...prev, response.data]);
       toast({
         title: "User created successfully",
         status: "success",
@@ -59,7 +60,6 @@ const Form = ({ setUserList, userList }) => {
       p={8}
       boxShadow="lg"
       w={{ base: "90%", sm: "400px", md: "500px" }}
-      // position="fixed"
       height="80vh"
     >
       <Heading as="h1" mb={4} textAlign={"center"}>
