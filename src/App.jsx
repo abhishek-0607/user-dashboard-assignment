@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import UserTable from "./components/UserTable";
+import Form from "./components/Form";
 
 function App() {
   const [userList, setUserList] = useState([]);
@@ -17,6 +18,7 @@ function App() {
   };
   return (
     <div className="App">
+      <Form userList={userList} setUserList={setUserList} />
       <UserTable userList={userList} />
     </div>
   );
